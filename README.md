@@ -3,10 +3,10 @@
 Polaris é o ecosistema de microserviço da Neohubble, onde vou deixar em codigo fonte aberto quase todas as soluções para uso.
 Alguns serviços vão ficar com o codigo fonte sempre livre para quem quiser contribuir ou sla ...
 Atualmente a solução inicial consiste em:
-    - Serviço de mensageria Kafka. (V)
-    - Serviço de autenticaçao de usuario. (Pending ...)
-    - Serviço de email. (F)
-    - Envio de mensagem (WhatsApp) em lote via API da meta. (F)
+    - Serviço de mensageria Kafka. (V)<br/>
+    - Serviço de autenticaçao de usuario. (Pending ...)<br/>
+    - Serviço de email. (F)<br/>
+    - Envio de mensagem (WhatsApp) em lote via API da meta. (F)<br/>
 
 
 # Rodando projeto local
