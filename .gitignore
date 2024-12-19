@@ -1,0 +1,9 @@
+docker-compose.yml
+
+.env
+.development.env
+.production.env
+.qa.env
+
+node_modules
+/node_modules
