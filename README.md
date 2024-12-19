@@ -20,4 +20,4 @@ Não esqueça de conferir os .env caso existir!<br/>
     - no console você vai conseguir acompanhar e ver se tudo está ok. 
     - caso não estiver "ok" verifique o erro e ajuste as configurações de ambiente.
 
-2. Projeto rodando é só pau no gato.
+2. Projeto rodando é só pau no gato. 🧹🐱
