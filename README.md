@@ -18,6 +18,6 @@ Não esqueça de conferir os .env caso existir!
     - docker-compose up --build
     [isso faz com que o docker cuide do ambiente e dependencia para você]
     - no console você vai conseguir acompanhar e ver se tudo está ok. 
-    - caso não estiver "ok" verefique o erro e ajuste as configurações de ambiente.
+    - caso não estiver "ok" verifique o erro e ajuste as configurações de ambiente.
 
 2. Projeto rodando é só pau no gato.
