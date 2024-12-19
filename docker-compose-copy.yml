@@ -1,0 +1,91 @@
+version: '3.8'
+services:
+
+  # gerenciamento de metadados.
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    networks:
+      - microservices-net
+
+  # mensageria.
+  kafka:
+    image: wurstmeister/kafka:latest
+    container_name: kafka
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka:9093
+      KAFKA_LISTENERS: INSIDE://0.0.0.0:9093
+      KAFKA_LISTENER_NAMES: INSIDE
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT
+      KAFKA_LISTENER_SECURITY_PROTOCOL: PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    ports:
+      - "9093:9093"
+    depends_on:
+      - zookeeper
+    networks:
+      - microservices-net
+
+  # Serviço de autenticação.
+  auth-service:
+    build: ./microservices/auth-service
+    container_name: auth-service
+    environment:
+      - NODE_ENV=development
+      - MONGO_URI=mongodb://mongo:27017/auth
+      - JWT_SECRET=mysecretkey
+      - PORT=3001
+    ports:
+      - "3001:3001"
+    depends_on:
+      - mongo
+    networks:
+      - microservices-net
+
+  # Serviço de usuário.
+  # user-service:
+  #   build: ./user-service
+  #   container_name: user-service
+  #   environment:
+  #     - NODE_ENV=production
+  #     - MONGO_URI=mongodb://mongo:27017/users
+  #   ports:
+  #     - "3002:3002"
+  #   depends_on:
+  #     - mongo
+  #   networks:
+  #     - microservices-net
+
+  # Banco de dados MongoDB (pode ser PostgreSQL ou outro).
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - microservices-net
+  # Serviço de envio de e-mails (por exemplo, para confirmar cadastro e recuperação de senha).
+  # email-service:
+  #   build: ./email-service
+  #   container_name: email-service
+  #   environment:
+  #     - NODE_ENV=production
+  #     - EMAIL_HOST=smtp.example.com
+  #     - EMAIL_PORT=587
+  #     - EMAIL_USER=myemail@example.com
+  #     - EMAIL_PASS=password
+  #   ports:
+  #     - "3003:3003"
+  #   networks:
+  #     - microservices-net
+
+networks:
+  microservices-net:
+    driver: bridge
+
+volumes:
+  mongo-data:
+    driver: local
