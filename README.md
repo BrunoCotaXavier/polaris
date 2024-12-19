@@ -2,7 +2,7 @@
 
 Polaris é o ecosistema de microserviço da Neohubble, onde vou deixar em codigo fonte aberto quase todas as soluções para uso.<br/>
 Alguns serviços vão ficar com o codigo fonte sempre livre para quem quiser contribuir ou sla ...<br/>
-Atualmente a solução inicial consiste em:
+Atualmente a solução inicial consiste em:<br/>
     - Serviço de mensageria Kafka. 👍🏼<br/>
     - Serviço de autenticaçao de usuario. ✍🏼 ...<br/>
     - Serviço de email. 👎🏼<br/>
