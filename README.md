@@ -15,7 +15,7 @@ Atualmente a solução inicial consiste em:<br/>
 Não esqueça de conferir os .env caso existir!<br/>
 
 1. Inicialmente após clonar o projeto acesse a raiz do Polaris e execute: <br/>
-    - `docker-compose up --build`
+    - `docker compose up --build`
     [isso faz com que o docker cuide do ambiente e dependencia para você]
     - no console você vai conseguir acompanhar e ver se tudo está ok. 
     - caso não estiver "ok" verifique o erro e ajuste as configurações de ambiente.
